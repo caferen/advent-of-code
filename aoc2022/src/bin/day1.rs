@@ -29,7 +29,8 @@ fn main() {
         }
     }
 
-    let res = maxes[0] + maxes[1] + maxes[2];
+    let sum: i64 = maxes.iter().sum();
+    let max: i64 = *maxes.iter().max().unwrap();
 
-    println!("{:?}", res);
+    println!("max: {}, sum: {}", max, sum);
 }
