@@ -44,8 +44,8 @@ impl Line {
             .into_iter()
             .map(|val| {
                 let cell_val = val.parse::<i64>().unwrap();
-                let cell = Cell::new(cell_val);
-                cell
+                
+                Cell::new(cell_val)
             })
             .collect::<Vec<Cell>>();
 
@@ -143,18 +143,18 @@ fn main() {
     let file = fs::read_to_string("./inputs/input.txt").expect("File could not be read");
 
     let lines: Vec<&str> = file
-        .split("\n")
-        .filter(|x| x.len() > 0)
+        .split('\n')
+        .filter(|x| !x.is_empty())
         .map(|y| y.trim())
         .collect();
     let inputs = lines[0]
-        .split(",")
-        .filter(|x| x.len() > 0)
+        .split(',')
+        .filter(|x| !x.is_empty())
         .collect::<Vec<&str>>();
     let matrix_data: Vec<Vec<&str>> = lines[1..]
         .to_vec()
         .into_iter()
-        .map(|entries| entries.split(" ").filter(|elem| elem.len() > 0).collect())
+        .map(|entries| entries.split(' ').filter(|elem| !elem.is_empty()).collect())
         .collect();
 
     let mut matrices: Vec<Matrix> = vec![];

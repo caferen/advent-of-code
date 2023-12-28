@@ -9,7 +9,7 @@ fn main() {
 fn part_two() {
     let path = Path::new(r#"inputs/day2.txt"#);
     let input =
-        fs::read_to_string(path).expect(&format!("{} could not be read", path.to_str().unwrap()));
+        fs::read_to_string(path).unwrap_or_else(|_| panic!("{} could not be read", path.to_str().unwrap()));
     static WIN_PTS: i32 = 6;
     static DRAW_PTS: i32 = 3;
     static LOSE_PTS: i32 = 0;
@@ -94,7 +94,7 @@ fn part_two() {
 fn part_one() {
     let path = Path::new(r#"inputs/day2.txt"#);
     let input =
-        fs::read_to_string(path).expect(&format!("{} could not be read", path.to_str().unwrap()));
+        fs::read_to_string(path).unwrap_or_else(|_| panic!("{} could not be read", path.to_str().unwrap()));
     static WIN_PTS: i32 = 6;
     static DRAW_PTS: i32 = 3;
     static LOSE_PTS: i32 = 0;

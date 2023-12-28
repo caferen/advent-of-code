@@ -4,7 +4,7 @@ fn main() {
     let contents = fs::read_to_string("./inputs/day1.txt").expect("msg");
 
     let contents_list: Vec<i32> = contents
-        .split("\n")
+        .split('\n')
         .map(|x| x.parse::<i32>().unwrap())
         .collect();
 

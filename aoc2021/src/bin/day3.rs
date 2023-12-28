@@ -39,11 +39,10 @@ fn binary_to_decimal(binary: &str) -> i64 {
 
 fn main() {
     let inputs = fs::read_to_string("./inputs/input.txt").expect("msg");
-    let binaries: Vec<&str> = inputs.split("\n").collect();
+    let binaries: Vec<&str> = inputs.split('\n').collect();
     let mut oxygen_generator_rating_binaries = binaries.clone();
     let mut co2_scrubber_rating_binaries = binaries.clone();
-    let oxygen_generator_rating: i64;
-    let co2_scrubber_rating: i64;
+
     let mut idx: usize = 0;
     while oxygen_generator_rating_binaries.len() > 1 || co2_scrubber_rating_binaries.len() > 1 {
         if oxygen_generator_rating_binaries.len() > 1 {
@@ -89,8 +88,8 @@ fn main() {
         idx += 1;
     }
 
-    co2_scrubber_rating = binary_to_decimal(&co2_scrubber_rating_binaries[0]);
-    oxygen_generator_rating = binary_to_decimal(&oxygen_generator_rating_binaries[0]);
+    let co2_scrubber_rating: i64 = binary_to_decimal(co2_scrubber_rating_binaries[0]);
+    let oxygen_generator_rating: i64 = binary_to_decimal(oxygen_generator_rating_binaries[0]);
 
     let life_support_rating = oxygen_generator_rating * co2_scrubber_rating;
 

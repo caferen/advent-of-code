@@ -1,6 +1,6 @@
 
 fn main() {
-    let input = "bgvyzdsv";
+    let _input = "bgvyzdsv";
     println!("Hello, world!");
 
 }
