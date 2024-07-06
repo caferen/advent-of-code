@@ -1,10 +1,12 @@
-use std::fs;
+use aoc2015::input;
+
+const INCR: i32 = 1;
+
 fn main() {
-    let inputs = fs::read_to_string("./inputs/day1.txt").expect("File could not be read");
+    let input = input("./inputs/day1.txt");
 
     let mut floor = 0;
     let mut counter = 0;
-    const INCR: i32 = 1;
 
     let mut make_move = |c: char| {
         match c {
@@ -22,11 +24,11 @@ fn main() {
         false
     };
 
-    for c in inputs.chars() {
+    for c in input.chars() {
         let did_hit_basement = make_move(c);
         if did_hit_basement {
             break;
         }
     }
-    println!("{}", counter);
+    println!("{counter}");
 }
